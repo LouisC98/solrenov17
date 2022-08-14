@@ -1,0 +1,55 @@
+.navbar {
+    background-color: $bg-dark;
+
+    .navbar-brand {
+        img {
+            width: 250px;
+        }
+    }
+
+    .nav-link {
+        color: $white;
+        font-size: 1.5rem;
+    }
+
+    .active {
+        color: $white  !important;
+        border-bottom: solid 3px $orange ;
+    }
+}
+
+.menu {
+    background-color: $bg-dark;
+    color: $white;
+    font-size: 1.5rem;
+
+    li {
+        width: 50%;
+    }
+
+    @media screen and (max-width: 695px) {
+        li {
+            width: 95%;
+        }
+    }
+
+    .active {
+        color: $white  !important;
+        border-bottom: solid 3px $orange;
+    }
+}
+
+.hidden {
+    display: none;
+}
+
+@media screen and (max-width: 992px) {
+    .burger {
+        i {
+            color: $white;
+            font-size: 2rem;
+            border: solid 2px $white;
+            border-radius: 10px;
+        }
+    }
+}
