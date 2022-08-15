@@ -8,6 +8,8 @@ burger.addEventListener('click', (event: MouseEvent) => {
 });
 
 appContent.addEventListener('click', (event: MouseEvent) => {
+    console.log('click');
+
     if (!menu.classList.contains('hidden')) {
         menu.classList.add('hidden');
     }

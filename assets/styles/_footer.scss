@@ -1,0 +1,46 @@
+footer {
+    background-color: $bg-dark;
+    color: $white;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding-top: 2rem;
+
+    .footer-main {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        padding: 0 2rem;
+
+        img {
+            width: 300px;
+        }
+
+        .social {
+            i {
+                font-size: 2.5rem;
+                margin: 0 .5rem;
+                color: grey;
+            }
+        }
+    }
+
+    .mentions {
+        margin-top: 2rem;
+        text-align: center;
+        color: grey;
+        font-size: .8rem;
+    }
+}
+
+@media screen and (max-width: 695px) {
+    footer {
+        img {
+            width: 200px !important;
+        }
+
+        i {
+            font-size: 1.7rem !important;
+        }
+    }
+}

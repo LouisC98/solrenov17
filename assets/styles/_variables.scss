@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400&display=swap');
 
 $bg-dark: #1F1E24;
 $white: rgb(246, 246, 246);
@@ -6,6 +6,9 @@ $orange: #F54F37;
 
 * {
     font-family: 'Lato';
+}
+body {
+    box-sizing: border-box;
 }
 
 li {

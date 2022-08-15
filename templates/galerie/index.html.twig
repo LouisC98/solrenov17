@@ -1,8 +1,9 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello GalerieController!{% endblock %}
+{% block title %}SOLRENOV 17 - Galerie{% endblock %}
 
 {% block body %}
-{% include "partials/_navbar.html.twig" %}
-<h1>Galerie</h1>
+<div class="app-content">
+    {% include "partials/_img-header.html.twig" with {'title': 'Notre galerie'} %}
+</div>
 {% endblock %}
