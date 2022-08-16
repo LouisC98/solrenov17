@@ -22,4 +22,20 @@ class DefaultController extends AbstractController
             'controller_name' => 'DefaultController',
         ]);
     }
+
+    #[Route('/about', name: 'about')]
+    public function about(): Response
+    {
+        return $this->render('about/index.html.twig', [
+            'controller_name' => 'DefaultController',
+        ]);
+    }
+
+    #[Route('/contact', name: 'contact')]
+    public function contact(): Response
+    {
+        return $this->render('contact/index.html.twig', [
+            'controller_name' => 'DefaultController',
+        ]);
+    }
 }

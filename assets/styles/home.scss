@@ -31,6 +31,7 @@
         }
     }
 
+    
     .icon-container {
         display: flex;
         width: 100%;
@@ -58,8 +59,7 @@
                 text-align: center;
             }
         }
-    }
-
+        }
 }
 
 .project-container {
@@ -79,6 +79,7 @@
         i {
             font-size: 1.8rem;
             margin: 0 .5rem;
+            color: grey;
         }
     }
 
@@ -109,10 +110,12 @@
         i {
             font-size: 1.8rem;
             margin: 0 .5rem;
+            color: grey;
         }
     }
 
     .choose-content {
+        display: flex;
         align-items: center;
         flex-wrap: wrap;
 
@@ -122,7 +125,6 @@
 
             p {
                 font-size: 1.25rem;
-                color: grey;
 
                 span {
                     font-weight: bold;
@@ -186,6 +188,7 @@
     }
 
     .choose-content {
+        display: flex;
         justify-content: center;
 
         &-text {

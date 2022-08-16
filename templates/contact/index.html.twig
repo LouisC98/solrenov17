@@ -1,0 +1,25 @@
+{% extends "base.html.twig" %}
+
+{% block title %}
+SOLRENOV17 - Contact
+{% endblock title %}
+
+{% block body %}
+<div class="app-content">
+    {% include "partials/_img-header.html.twig" with {'title' : 'Contactez-nous'} %}
+    <div class="contact-container container">
+        <div class="icon-item">
+            <div class="icon">
+                <i class="bi bi-phone"></i>
+            </div>
+            <p class="icon-text"><a href="tel:0678065076">06 78 06 50 76</a></p>
+        </div>
+        <div class="icon-item">
+            <div class="icon">
+                <i class="bi bi-envelope"></i>
+            </div>
+            <p class="icon-text"> <a href="mailto:solrenov17@gmail.com">solrenov17@gmail.com</a></p>
+        </div>
+    </div>
+</div>
+{% endblock body %}

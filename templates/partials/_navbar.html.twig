@@ -12,10 +12,11 @@
                         href="{{ path('galerie') }}">Galerie</a>
                 </li>
                 <li class="nav-item mx-3">
-                    <a class="nav-link" href="#">À propos</a>
+                    <a class="nav-link {% if app.request.pathinfo==path('about') %} active {% endif %}" href="{{ path('about') }}">À
+                        propos</a>
                 </li>
                 <li class="nav-item mx-3">
-                    <a class="nav-link" href="#">
+                    <a class="nav-link {% if app.request.pathinfo==path('contact') %} active {% endif %}" href="{{ path('contact') }}">
                         Contact
                     </a>
                 </li>
@@ -35,10 +36,12 @@
                 href="{{ path('galerie') }}">Galerie</a>
         </li>
         <li class="nav-item m-2">
-            <a class="nav-link" href="#">À propos</a>
+            <a class="nav-link {% if app.request.pathinfo==path('about') %} active {% endif %}" href="{{ path('about') }}">À
+                propos</a>
         </li>
         <li class="nav-item m-2">
-            <a class="nav-link" href="#">Contact</a>
+            <a class="nav-link {% if app.request.pathinfo==path('contact') %} active {% endif %}"
+                href="{{ path('contact') }}">Contact</a>
         </li>
     </ul>
 </div>

@@ -1,5 +1,4 @@
 .navbar {
-    position: fixed;
     background-color: $bg-dark;
 
     .navbar-brand {
@@ -11,8 +10,9 @@
     .nav-link {
         color: $white;
         font-size: 1.5rem;
+
         &:hover {
-                color: $white;
+            color: $white;
                 border-bottom: solid 3px $orange;
                 transition: .5s;
             }
@@ -29,7 +29,7 @@
     color: $white;
     font-size: 1.5rem;
     width: 100%;
-        height: auto;
+    height: auto;
         position: absolute;
         z-index: 2;
 
@@ -37,10 +37,9 @@
         width: 50%;
     }
 
-    @media screen and (max-width: 695px) {
-        li {
-            width: 95%;
-        }
+                                                                a:hover {
+                                                                    border-bottom: solid 3px $orange;
+                                                                    transition: .5s ease-in;
     }
 
     .active {
@@ -53,8 +52,25 @@
     display: none;
 }
 
+@media screen and (max-width: 695px) {
+    nav {
+        height: 10vh !important;
+    }
+
+    .menu {
+        li {
+            width: 95%;
+        }
+    }
+}
 @media screen and (max-width: 992px) {
+    nav {
+            height: 10vh !important;
+        }
     .burger {
+        &:hover {
+                cursor: pointer;
+            }
         i {
             color: $white;
             font-size: 2rem;

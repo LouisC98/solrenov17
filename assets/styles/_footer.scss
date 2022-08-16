@@ -26,17 +26,24 @@ footer {
     }
 
     .mentions {
-        margin-top: 2rem;
+        margin-top: 1.5rem;
         text-align: center;
-        color: grey;
-        font-size: .8rem;
+        p {
+                font-size: .8rem;
+            color: grey;
+            }
     }
 }
 
 @media screen and (max-width: 695px) {
     footer {
+        .footer-main {
+                display: block;
+                text-align: center;
+            }
         img {
-            width: 200px !important;
+            width: 250px !important;
+                margin-bottom: 1rem;
         }
 
         i {
