@@ -24,6 +24,12 @@ Encore
     .addEntry('navbar', './assets/navbar.ts')
 
     .copyFiles({
+        from: './assets/uploads',
+        pattern: /\.(png|jpg|jpeg|gif|ico|svg)$/,
+        // to path is relative to the build directory
+        to: 'uploads/[path][name].[ext]'
+    })
+    .copyFiles({
         from: './assets/images',
         pattern: /\.(png|jpg|jpeg|gif|ico|svg)$/,
         // to path is relative to the build directory

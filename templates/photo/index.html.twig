@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Admin Dashboard{% endblock %}
+
+{% block body %}
+    <div class="app-content">
+        <div class="dashboard-container">
+            <h1>Admin Dashboard</h1>
+            <div class="menu-dashbord">
+                <a href="{{path('app_photo_new')}}">Nouvelles photos</a>
+                <a href="{{path('app_category_new')}}">Nouvelles categorie</a>
+            </div>
+        </div>
+    </div>
+    {% endblock body %}
+    
+    {# <a href="{{ path('app_photo_edit', {'id': photo.id}) }}">edit</a>
+    <a href="{{ path('app_photo_show', {'id': photo.id}) }}">show</a>
+    <img src="{{asset('build/uploads/')}}{{photo.name}}" class="image-dash" alt="">
+    <td>{{ photo.uploadedAt ? photo.uploadedAt|date('Y-m-d H:i:s') : '' }}</td> #}
+
