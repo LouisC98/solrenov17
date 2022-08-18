@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\Category;
 use App\Entity\Photo;
 use App\Form\PhotoType;
+use App\Repository\CategoryRepository;
 use App\Repository\PhotoRepository;
 use DateTimeImmutable;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -16,10 +17,11 @@ use Symfony\Component\Routing\Annotation\Route;
 class PhotoController extends AbstractController
 {
     #[Route('/', name: 'app_photo_index', methods: ['GET'])]
-    public function index(PhotoRepository $photoRepository): Response
+    public function index(Request $request, PhotoRepository $photoRepository, CategoryRepository $categoryRepository): Response
     {
         return $this->render('photo/index.html.twig', [
             'photos' => $photoRepository->findAll(),
+            'categories' => $categoryRepository->findAll()
         ]);
     }
 
@@ -33,6 +35,8 @@ class PhotoController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $photos = $form->get('photos')->getData();
             $category = $form->get('category')->getData();
+
+            // dd($photos);
 
             foreach ($photos as $photo) {
                 $fichier = md5(uniqid()) . '.' . $photo->guessExtension();
@@ -57,31 +61,31 @@ class PhotoController extends AbstractController
         ]);
     }
 
-    #[Route('/{id}', name: 'app_photo_show', methods: ['GET'])]
-    public function show(Photo $photo): Response
-    {
-        return $this->render('photo/show.html.twig', [
-            'photo' => $photo,
-        ]);
-    }
+    // #[Route('/{id}', name: 'app_photo_show', methods: ['GET'])]
+    // public function show(Photo $photo): Response
+    // {
+    //     return $this->render('photo/show.html.twig', [
+    //         'photo' => $photo,
+    //     ]);
+    // }
 
-    #[Route('/{id}/edit', name: 'app_photo_edit', methods: ['GET', 'POST'])]
-    public function edit(Request $request, Photo $photo, PhotoRepository $photoRepository): Response
-    {
-        $form = $this->createForm(PhotoType::class, $photo);
-        $form->handleRequest($request);
+    // #[Route('/{id}/edit', name: 'app_photo_edit', methods: ['GET', 'POST'])]
+    // public function edit(Request $request, Photo $photo, PhotoRepository $photoRepository): Response
+    // {
+    //     $form = $this->createForm(PhotoType::class, $photo);
+    //     $form->handleRequest($request);
 
-        if ($form->isSubmitted() && $form->isValid()) {
-            $photoRepository->add($photo, true);
+    //     if ($form->isSubmitted() && $form->isValid()) {
+    //         $photoRepository->add($photo, true);
 
-            return $this->redirectToRoute('app_photo_index', [], Response::HTTP_SEE_OTHER);
-        }
+    //         return $this->redirectToRoute('app_photo_index', [], Response::HTTP_SEE_OTHER);
+    //     }
 
-        return $this->renderForm('photo/edit.html.twig', [
-            'photo' => $photo,
-            'form' => $form,
-        ]);
-    }
+    //     return $this->renderForm('photo/edit.html.twig', [
+    //         'photo' => $photo,
+    //         'form' => $form,
+    //     ]);
+    // }
 
     #[Route('/{id}', name: 'app_photo_delete', methods: ['POST'])]
     public function delete(Request $request, Photo $photo, PhotoRepository $photoRepository): Response

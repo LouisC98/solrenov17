@@ -5,10 +5,36 @@
 {% block body %}
     <div class="app-content">
         <div class="dashboard-container">
-            <h1>Admin Dashboard</h1>
-            <div class="menu-dashbord">
-                <a href="{{path('app_photo_new')}}">Nouvelles photos</a>
-                <a href="{{path('app_category_new')}}">Nouvelles categorie</a>
+            {% include "partials/_dashboard_navbar.html.twig" %}
+            <div class="menu-category">
+                
+            </div>
+            <div class="photos-container container my-5">
+                <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-2">
+                    {% for photo in photos %}
+                    <div class="col">
+                        <div class="card h-100 shadow-sm">
+                            <img class="card-img-top" src="{{asset('build/uploads/')}}{{photo.name}}" alt="">
+                            <div class="card-body">
+                                <ul>
+                                    <li>
+                                        <span>Nom </span>: {{photo.name}}
+                                    </li>
+                                    <li>
+                                        <span>Catégorie </span>: {{photo.category.name}}
+                                    </li>
+                                    <li>
+                                        <span>Date </span>: {{ photo.uploadedAt ? photo.uploadedAt|date('Y-m-d H:i:s') : '' }}
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="card-footer d-flex justify-content-end">                                
+                                {{ include('photo/_delete_form.html.twig') }}
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
             </div>
         </div>
     </div>

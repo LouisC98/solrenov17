@@ -40,13 +40,13 @@ class CategoryController extends AbstractController
         ]);
     }
 
-    #[Route('/category/{id}', name: 'app_category_show', methods: ['GET'])]
-    public function show(Category $category): Response
-    {
-        return $this->render('category/show.html.twig', [
-            'category' => $category,
-        ]);
-    }
+    // #[Route('/category/{id}', name: 'app_category_show', methods: ['GET'])]
+    // public function show(Category $category): Response
+    // {
+    //     return $this->render('category/show.html.twig', [
+    //         'category' => $category,
+    //     ]);
+    // }
 
     #[Route('/category/{id}/edit', name: 'app_category_edit', methods: ['GET', 'POST'])]
     public function edit(Request $request, Category $category, CategoryRepository $categoryRepository): Response

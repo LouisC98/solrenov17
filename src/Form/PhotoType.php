@@ -17,11 +17,13 @@ class PhotoType extends AbstractType
         $builder
             ->add('photos', FileType::class, [
                 'mapped' => false,
-                'multiple' => true
+                'multiple' => true,
+                'label' => 'Photo(s) : '
             ])
             ->add('category', EntityType::class, [
                 'class' => Category::class,
-                'choice_label' => 'name'
+                'choice_label' => 'name',
+                'label' => 'Catégorie : '
             ])
         ;
     }
