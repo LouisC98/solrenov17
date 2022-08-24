@@ -2,12 +2,12 @@
 
 namespace App\Controller;
 
-use App\Entity\Category;
 use App\Entity\Photo;
 use App\Form\PhotoType;
-use App\Repository\CategoryRepository;
+use App\Form\SearchPhotoType;
 use App\Repository\PhotoRepository;
 use DateTimeImmutable;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -17,11 +17,28 @@ use Symfony\Component\Routing\Annotation\Route;
 class PhotoController extends AbstractController
 {
     #[Route('/', name: 'app_photo_index', methods: ['GET'])]
-    public function index(Request $request, PhotoRepository $photoRepository, CategoryRepository $categoryRepository): Response
+    public function index(PhotoRepository $photoRepository): Response
     {
         return $this->render('photo/index.html.twig', [
-            'photos' => $photoRepository->findAll(),
-            'categories' => $categoryRepository->findAll()
+            'photos' => $photoRepository->findAll()
+        ]);
+    }
+
+    #[Route('/search', name: 'app_photo_search', methods: ['GET', 'POST'])]
+    public function search(PhotoRepository $photoRepository, Request $request): Response
+    {
+        $photos = new Photo();
+        $searchForm = $this->createForm(SearchPhotoType::class, $photos);
+        $searchForm->handleRequest($request);
+
+        if ($searchForm->isSubmitted() && $searchForm->isValid()) {
+            $data = $searchForm->getData()->getCategory();
+            $photos = $photoRepository->searchByCategory($data);
+        }
+
+        return $this->render('photo/search.html.twig', [
+            'photos' => $photos,
+            'searchForm' => $searchForm->createView()
         ]);
     }
 
@@ -96,4 +113,6 @@ class PhotoController extends AbstractController
 
         return $this->redirectToRoute('app_photo_index', [], Response::HTTP_SEE_OTHER);
     }
+
+    
 }

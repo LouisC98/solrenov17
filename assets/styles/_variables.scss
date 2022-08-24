@@ -15,6 +15,11 @@ body {
         background-color: $white;
 }
 
+.app-content {
+    min-height: 90vh;
+}
+
+
 li {
     list-style: none;
 }

@@ -39,6 +39,38 @@ class PhotoRepository extends ServiceEntityRepository
         }
     }
 
+    public function searchByCategory($data)
+    {
+        return $this->createQueryBuilder('p')
+            ->where('p.category = :cat')
+            ->setParameter('cat', $data)
+            ->getQuery()
+            ->getResult()
+        ;
+    }
+
+    public function searchByCategoryJson($data)
+    {
+        return $this->createQueryBuilder('p')
+            ->where('p.category = :cat')
+            ->setParameter('cat', $data)
+            ->getQuery()
+            ->getArrayResult()
+        ;
+    }
+
+    public function allPhotosJson()
+    {
+        return $this->createQueryBuilder('p')
+            ->select('p')
+            ->join('p.category', 'c')
+            ->addSelect('c')
+            ->getQuery()
+            ->getArrayResult()
+        ;
+    }
+
+
 //    /**
 //     * @return Photo[] Returns an array of Photo objects
 //     */

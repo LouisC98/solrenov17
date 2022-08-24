@@ -22,6 +22,7 @@ Encore
      */
     .addEntry('app', './assets/app.js')
     .addEntry('navbar', './assets/navbar.ts')
+    .addEntry('search', './assets/search.js')
 
     .copyFiles({
         from: './assets/uploads',
@@ -75,6 +76,8 @@ Encore
 
     // uncomment if you use TypeScript
     .enableTypeScriptLoader()
+
+    .enableVueLoader()
 
     // uncomment if you use React
     //.enableReactPreset()
