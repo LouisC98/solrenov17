@@ -6,20 +6,35 @@ SOLRENOV17 - Contact
 
 {% block body %}
 <div class="app-content">
+    {% for cat, list in app.flashes %}
+    {% for msg in list %}
+    <div class="flash flash-{{cat}}">
+        {{msg}}
+    </div>
+    {% endfor %}
+    {% endfor %}
     {% include "partials/_img-header.html.twig" with {'title' : 'Contactez-nous'} %}
-    <div class="contact-container container">
-        <div class="icon-item">
+    <div class="contact-icon-container container d-flex justify-content-around my-2">
+        <div class="icon-item container d-flex justify-content-center align-items-center m-3">
             <div class="icon">
                 <i class="bi bi-phone"></i>
             </div>
-            <p class="icon-text"><a href="tel:0678065076">06 78 06 50 76</a></p>
+            <a href="tel:0678065076">06 78 06 50 76</a>
         </div>
-        <div class="icon-item">
+        <div class="icon-item container d-flex justify-content-center align-items-center m-3">
             <div class="icon">
                 <i class="bi bi-envelope"></i>
             </div>
-            <p class="icon-text"> <a href="mailto:solrenov17@gmail.com">solrenov17@gmail.com</a></p>
+            <a href="mailto:solrenov17@gmail.com">solrenov17@gmail.com</a>
         </div>
+    </div>
+    <div class="contact-form-container container my-5 d-flex justify-content-center">
+        {{form_start(contactForm)}}
+        {{form_rest(contactForm)}}
+        <div class="container justify-content-end p-0 mt-3">
+            <button type="submit">Envoyer <i class="bi bi-send"></i></button>
+        </div>
+        {{form_end(contactForm)}}
     </div>
 </div>
 {% endblock body %}

@@ -2,11 +2,17 @@
 
 namespace App\Controller;
 
+use App\Form\ContactType;
 use App\Repository\CategoryRepository;
 use App\Repository\PhotoRepository;
+use Symfony\Bridge\Twig\Mime\TemplatedEmail;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Mailer\Exception\TransportExceptionInterface;
+use Symfony\Component\Mailer\MailerInterface;
+use Symfony\Component\Mime\Email;
 use Symfony\Component\Routing\Annotation\Route;
 
 class DefaultController extends AbstractController
@@ -59,10 +65,39 @@ class DefaultController extends AbstractController
     }
 
     #[Route('/contact', name: 'contact')]
-    public function contact(): Response
+    public function contact(Request $request, MailerInterface $mailer): Response
     {
+        $contactForm = $this->createForm(ContactType::class);
+        $contactForm->handleRequest($request);
+
+        if ($contactForm->isSubmitted() && $contactForm->isValid()) {
+            $username = $contactForm->get('name')->getData();
+            $userEmail = $contactForm->get('email')->getData();
+            $objectMsg = $contactForm->get('subject')->getData();
+            $message = $contactForm->get('message')->getData();
+
+            $email = (new TemplatedEmail())
+                    ->from($userEmail)
+                    ->to('louis@gmail.com')
+                    ->subject($objectMsg)
+                    ->htmlTemplate('email/email.html.twig')
+                    ->context([
+                        'message' => $message,
+                        'name' => $username,
+                        'userEmail' => $userEmail
+                    ])
+            ;
+            try {
+                $mailer->send($email);
+                $this->addFlash('success', 'Votre message a été envoyé');
+            } catch (TransportExceptionInterface $e) {
+                $this->addFlash('error', 'Une erreur est survenue');
+            }
+        }
+
         return $this->render('contact/index.html.twig', [
             'controller_name' => 'DefaultController',
+            'contactForm' => $contactForm->createView()
         ]);
     }
 }
