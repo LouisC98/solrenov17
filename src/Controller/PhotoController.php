@@ -7,7 +7,6 @@ use App\Form\PhotoType;
 use App\Form\SearchPhotoType;
 use App\Repository\PhotoRepository;
 use DateTimeImmutable;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -108,6 +107,9 @@ class PhotoController extends AbstractController
     public function delete(Request $request, Photo $photo, PhotoRepository $photoRepository): Response
     {
         if ($this->isCsrfTokenValid('delete'.$photo->getId(), $request->request->get('_token'))) {
+            //suppression du fichier correspondant
+            unlink($this->getParameter('photos_directory'). '/' . $photo->getName());
+            //supression du nom de fichier dans la bdd
             $photoRepository->remove($photo, true);
         }
 

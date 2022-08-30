@@ -2,20 +2,17 @@
 
 namespace App\Controller;
 
-use App\Entity\Photo;
-use App\Form\UploadType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
-use Symfony\Component\String\Slugger\SluggerInterface;
 
 class SecurityController extends AbstractController
 {
     #[Route(path: '/login', name: 'app_login')]
     public function login(AuthenticationUtils $authenticationUtils): Response
     {
+        //Permet de bloquer l'accès aux personnes non admin de se connecter
         if ($this->getUser() && $this->isGranted('ROLE_ADMIN')) {
             return $this->redirectToRoute('app_photo_index');
         }

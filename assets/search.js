@@ -15,12 +15,10 @@ createApp({
     mounted() {
         axios.get('/galerie/all')
         .then((res) => {
-            // const body = res.data
             this.photos = JSON.parse(res.data)
         }); 
         axios.get('/categories')
         .then((res) => {
-            // const body = res.data
             this.categories = JSON.parse(res.data)
         }); 
     },
@@ -34,7 +32,6 @@ createApp({
         findAll() {
             axios.get('/galerie/all')
             .then((res) => {
-            // const body = res.data
             this.photos = JSON.parse(res.data)
             });
         }

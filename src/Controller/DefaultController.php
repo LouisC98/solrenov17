@@ -12,7 +12,6 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Mailer\Exception\TransportExceptionInterface;
 use Symfony\Component\Mailer\MailerInterface;
-use Symfony\Component\Mime\Email;
 use Symfony\Component\Routing\Annotation\Route;
 
 class DefaultController extends AbstractController
@@ -32,6 +31,8 @@ class DefaultController extends AbstractController
         ]);
     }
 
+
+    // Routes pour récupérer les résultats à utiliser avec vuejs
     #[Route('/galerie/all', name: 'all_photos')]
     public function allPhotos(PhotoRepository $photoRepository)
     {   

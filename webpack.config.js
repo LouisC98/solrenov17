@@ -21,7 +21,6 @@ Encore
      * and one CSS file (e.g. app.css) if your JavaScript imports CSS.
      */
     .addEntry('app', './assets/app.js')
-    .addEntry('navbar', './assets/navbar.ts')
     .addEntry('search', './assets/search.js')
 
     .copyFiles({

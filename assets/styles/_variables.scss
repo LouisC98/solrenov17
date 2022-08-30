@@ -6,12 +6,11 @@ $orange: #F54F37;
 
 * {
     font-family: 'Lato';
-    text-decoration: none;
         margin: 0;
         padding: 0;
+        box-sizing: border-box;
 }
 body {
-    box-sizing: border-box;
         background-color: $white;
 }
 
@@ -19,7 +18,9 @@ body {
     min-height: 90vh;
 }
 
-
 li {
     list-style: none;
 }
+
+
+
