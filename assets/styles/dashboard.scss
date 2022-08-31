@@ -1,58 +1,52 @@
 .menu-dashboard {
-    padding: 0 1rem 1rem 1rem;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
     background-color: $bg-dark;
 
-    a {
+    .admin-home-btn {
         text-decoration: none;
+        color: $white;
 
-        h1 {
-            span {
-                color: $orange;
-            }
-
+        &:hover {
             color: $white;
-            font-weight: bold;
-            font-style: italic;
+        }
+
+        span {
+            color: $orange;
         }
     }
 
-
-    div {
-
-        margin: .5rem .5rem;
-
+    .admin-menu {
         a {
-            background-color: $orange;
-            font-size: 1.2rem;
-            font-weight: bold;
-            padding: .5rem;
-            text-decoration: none;
+            margin: .5rem;
             color: $white;
+            text-decoration: none;
+            padding: .3rem .5rem;
+            background-color: $orange;
             border-radius: 5px;
-            margin: 0 .5rem;
+            font-weight: bold;
+            font-size: 1.2rem;
 
             &:hover {
                 background-color: $white;
                 color: $orange;
                 transition: .5s ease-in-out;
             }
-
-            i {
-                font-size: 1.5rem;
-            }
         }
     }
 
     .logout {
         a {
-            background-color: $bg-dark;
+            color: $orange;
+            text-decoration: none;
             border: solid 1px $orange;
-            font-weight: normal;
+            padding: .3rem .5rem;
+            background-color: $white;
+            border-radius: 5px;
+
+            &:hover {
+                background-color: $orange;
+                color: $white;
+                transition: .5s ease-in-out;
+            }
         }
     }
 }
@@ -278,6 +272,7 @@
                 color: $orange;
             }
         }
+
         .delete-btn {
             color: red;
             padding: .4rem .5rem;
@@ -286,6 +281,7 @@
             border-radius: 5px;
             letter-spacing: .1rem;
             font-weight: bold;
+
             &:hover {
                 background-color: red;
                 color: $white;
