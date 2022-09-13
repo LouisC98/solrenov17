@@ -106,6 +106,7 @@
 
 // Page Login
 .login {
+    width: 25% !important;
     input {
         border: solid 1px $orange;
     }
@@ -122,6 +123,12 @@
             background-color: $orange;
             transition: .5s ease-in-out;
         }
+    }
+    @media screen and (max-width: 992px) {
+        width: 50% !important;
+    }
+    @media screen and (max-width: 695px) {
+        width: 90% !important;
     }
 }
 

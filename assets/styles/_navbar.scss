@@ -99,10 +99,13 @@ header {
 
 
 @media screen and (max-width: 695px) {
+header {
     nav {
         .logo {
-            img {
-                width: 250px !important;
+            a {
+                img {
+                    width: 250px !important;
+                }
             }
         }
 
@@ -112,6 +115,7 @@ header {
             }
         }
     }
+}
 
     .menu {
         li {

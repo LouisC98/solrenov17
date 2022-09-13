@@ -4,13 +4,13 @@
 
 {% block body %}
 <div class="app-content">
-    <div class="container my-5 w-50">
-        <h1>Inscription (réservé admin)</h1>
+    <h1 class="text-center mt-4">Inscription (réservé admin)</h1>
+    <div class="container d-flex justify-content-center">
         <div class="register">
             {{ form_start(registrationForm) }}
                 {{ form_row(registrationForm.email, { class: 'form-control' }) }}
                 {{ form_row(registrationForm.plainPassword, {
-                    label: 'Password'
+                    label: 'Mot de passe'
                 }) }}
                 <div class="d-flex justify-content-end">
                     <button type="submit" class="btn">S'inscrire</button>

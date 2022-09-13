@@ -4,7 +4,7 @@
 
 {% block body %}
 <div class="app-content">
-    <div class="container w-50 w-sm-100 my-5 login">
+    <div class="container my-5 login">
     <form method="post">
         {% if error %}
             <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>

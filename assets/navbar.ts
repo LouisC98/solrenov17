@@ -4,6 +4,7 @@ const appContent = document.querySelector('.app-content');
 
 
 burger.addEventListener('click', (event: MouseEvent) => {
+    console.log('click');
     menu.classList.toggle('hidden');
 });
 
