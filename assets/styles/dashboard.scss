@@ -132,40 +132,6 @@
     }
 }
 
-// Page register
-.register {
-    div {
-        margin: 1rem 0;
-        display: flex;
-        flex-wrap: wrap;
-
-        label {
-            width: 100%;
-        }
-
-        input {
-            width: 100%;
-            border-radius: 5px;
-            border: solid 1px $orange;
-            padding: .5rem;
-        }
-    }
-
-    button {
-        color: $orange;
-        background-color: $white;
-        font-weight: bold;
-        letter-spacing: .1rem;
-        border: solid 1px $orange;
-
-        &:hover {
-            color: $white;
-            background-color: $orange;
-            transition: .5s ease-in-out;
-        }
-    }
-}
-
 //Upload Page 
 .upload-img {
     form {
@@ -214,6 +180,7 @@
 // Page index categorie
 .category {
     ul {
+        width: 500px;
         li {
             a {
                 color: $orange;
@@ -221,6 +188,14 @@
                 i {
                     margin-left: .5rem;
                 }
+            }
+            button {
+                padding: .3rem .4rem;
+                background-color: red;
+                color: $white;
+                border: 0;
+                border-radius: 10px;
+                margin-left: .5rem;
             }
         }
     }

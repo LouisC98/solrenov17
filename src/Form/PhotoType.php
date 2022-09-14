@@ -8,6 +8,7 @@ use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Component\Mime\MimeTypes;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
 class PhotoType extends AbstractType
@@ -18,7 +19,7 @@ class PhotoType extends AbstractType
             ->add('photos', FileType::class, [
                 'mapped' => false,
                 'multiple' => true,
-                'label' => 'Photo(s) : '
+                'label' => 'Photo(s) : ',
             ])
             ->add('category', EntityType::class, [
                 'class' => Category::class,

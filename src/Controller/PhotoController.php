@@ -52,8 +52,6 @@ class PhotoController extends AbstractController
             $photos = $form->get('photos')->getData();
             $category = $form->get('category')->getData();
 
-            // dd($photos);
-
             foreach ($photos as $photo) {
                 $fichier = md5(uniqid()) . '.' . $photo->guessExtension();
 
@@ -76,32 +74,6 @@ class PhotoController extends AbstractController
             'form' => $form,
         ]);
     }
-
-    // #[Route('/{id}', name: 'app_photo_show', methods: ['GET'])]
-    // public function show(Photo $photo): Response
-    // {
-    //     return $this->render('photo/show.html.twig', [
-    //         'photo' => $photo,
-    //     ]);
-    // }
-
-    // #[Route('/{id}/edit', name: 'app_photo_edit', methods: ['GET', 'POST'])]
-    // public function edit(Request $request, Photo $photo, PhotoRepository $photoRepository): Response
-    // {
-    //     $form = $this->createForm(PhotoType::class, $photo);
-    //     $form->handleRequest($request);
-
-    //     if ($form->isSubmitted() && $form->isValid()) {
-    //         $photoRepository->add($photo, true);
-
-    //         return $this->redirectToRoute('app_photo_index', [], Response::HTTP_SEE_OTHER);
-    //     }
-
-    //     return $this->renderForm('photo/edit.html.twig', [
-    //         'photo' => $photo,
-    //         'form' => $form,
-    //     ]);
-    // }
 
     #[Route('/{id}', name: 'app_photo_delete', methods: ['POST'])]
     public function delete(Request $request, Photo $photo, PhotoRepository $photoRepository): Response
