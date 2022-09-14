@@ -7,7 +7,6 @@ createApp({
     },
     data() {
         return {
-            name: 'Louis',
             categories: null,
             photos: null
         }
@@ -16,14 +15,14 @@ createApp({
         axios.get('/galerie/all')
         .then((res) => {
             this.photos = JSON.parse(res.data)
-        }); 
+        });
         axios.get('/categories')
         .then((res) => {
             this.categories = JSON.parse(res.data)
         }); 
     },
     methods: {
-        searchByCategories(categoryId) {
+        searchByCategory(categoryId) {
             axios.get(`/galerie/${categoryId}`)
             .then((res) => {
                 this.photos = JSON.parse(res.data)
@@ -36,4 +35,4 @@ createApp({
             });
         }
     }
-}).mount('#search')
+}).mount('#selectCategory')
