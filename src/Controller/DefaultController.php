@@ -79,7 +79,7 @@ class DefaultController extends AbstractController
 
             $email = (new TemplatedEmail())
                     ->from($userEmail)
-                    ->to('louxor78310@gmail.com')
+                    ->to('contact@solrenov17.fr')
                     ->subject($objectMsg)
                     ->htmlTemplate('email/email.html.twig')
                     ->context([
