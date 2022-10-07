@@ -1,8 +1,8 @@
 {
-  "build/app.css": "/build/app.467825a6.css",
-  "build/app.js": "/build/app.29461baa.js",
-  "build/runtime.js": "/build/runtime.53a95366.js",
-  "build/716.a28e4512.js": "/build/716.a28e4512.js",
+  "build/app.css": "/build/app.css",
+  "build/app.js": "/build/app.js",
+  "build/runtime.js": "/build/runtime.js",
+  "build/vendors-node_modules_axios_index_js-node_modules_vue_dist_vue_esm-bundler_js.js": "/build/vendors-node_modules_axios_index_js-node_modules_vue_dist_vue_esm-bundler_js.js",
   "build/images/moquette/moquette_8.jpg": "/build/images/moquette/moquette_8.jpg",
   "build/images/flotex/acceuil.jpg": "/build/images/flotex/acceuil.jpg",
   "build/images/parquet/parquet_9.jpg": "/build/images/parquet/parquet_9.jpg",
