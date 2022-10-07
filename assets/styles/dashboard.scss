@@ -1,5 +1,7 @@
 .menu-dashboard {
     background-color: $bg-dark;
+    position: relative;
+    z-index: 2;
 
     .admin-home-btn {
         text-decoration: none;

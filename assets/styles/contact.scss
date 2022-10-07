@@ -8,28 +8,32 @@
     &-success {
         background-color: green;
     }
+
     &-error {
         background-color: red;
     }
 }
 
 .contact-icon-container {
-    .icon-item {
-        .icon {
-            margin-right: .5rem;
-            border: solid 1px grey;
-            border-radius: 50%;
-            padding: 0 .8rem;
-            i {
-                font-size: 3.5rem;
-                color: $orange;
-            }
-        }
-        a {
-            color: $bg-dark;
-            font-weight: bold;
-            font-size: 1.5rem;
-            margin-left: .5rem;
+
+    i {
+        font-size: 3.5rem;
+        color: $orange;
+        border: solid 2px grey;
+        border-radius: 50%;
+        padding: 0 .7rem;
+    }
+
+    a {
+        color: $bg-dark;
+        font-weight: bold;
+        font-size: 1.5rem;
+        transition: .5s;
+        text-decoration: none;
+
+        &:hover {
+            color: $orange;
+            transform: scale(1.1);
         }
     }
 }
@@ -37,27 +41,32 @@
 .contact-form-container {
     form {
         width: 40%;
+
         div {
             display: flex;
             flex-wrap: wrap;
             width: 100%;
             margin-bottom: .5rem;
+
             label {
                 width: 100%;
                 font-size: 1.2rem;
                 margin: .5rem;
                 font-weight: bold;
             }
+
             input {
                 width: 100%;
                 padding: .3rem;
             }
+
             textarea {
                 height: 150px;
                 width: 100%;
                 padding: .5rem;
             }
         }
+
         button {
             padding: .3rem .5rem;
             color: $orange;
@@ -78,16 +87,20 @@
 }
 
 @media screen and (max-width: 800px) {
-    .icon-container {
-        .icon-item {
-            justify-content: left;
-            width: 100%;
-            margin: 1rem 2rem;
-        }
-    }
     .contact-form-container {
         form {
             width: 95%;
+        }
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .contact-icon-container {
+        .col {
+            justify-content: space-around !important;
+            a {
+                width: 100%;
+            }
         }
     }
 }
