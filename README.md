@@ -1,8 +1,9 @@
 # Application Symfony SolRenov17
 
 ## Description
-Application web PHP Symfony réalisé dans le cadre d'un stage de formation DWWM auprès d'un artisan solier moquettiste. (Désormais fermé)
+Application web PHP Symfony réalisé dans le cadre d'un stage de formation DWWM auprès d'un artisan solier moquettiste.
 Fonctionnalité d'upload de photos pour la galerie avec création de catégories, le tout via un espace admin.
+(Désormais fermé)
 
 ## Prérequis
 - PHP >= 8.1
