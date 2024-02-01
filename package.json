@@ -16,7 +16,7 @@
         "build": "encore production --progress"
     },
     "dependencies": {
-        "axios": "^0.27.2",
+        "axios": "^1.6.7",
         "file-loader": "^6.2.0",
         "sass": "^1.54.4",
         "sass-loader": "^13.0.2",
